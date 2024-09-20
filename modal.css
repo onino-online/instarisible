@@ -1,0 +1,127 @@
+body {
+  font-size: 1rem; /* 16px par défaut */
+}
+
+/* Modal container: full-screen, dark background */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.85
+  ); /* Almost black background with transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.text {
+  font-family: "Chilanka", cursive;
+}
+
+/* Modal content: dark background with rounded corners and shadow */
+.modal-content {
+  background-color: #1a1a1a; /* Very dark grey for the modal background */
+  color: #f0f0f0; /* Light grey text */
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.75); /* Dark shadow for depth */
+  width: 600px;
+  max-width: 80%;
+  text-align: center;
+  font-family: "Chilanka", cursive !important;
+}
+
+.modal-content > h4 {
+  font-style: italic;
+  font-size: 0.5rem;
+}
+.modal-content > h3 {
+  font-size: 1rem;
+}
+.modal-content > h1 {
+  font-size: 2rem;
+}
+
+/* Modal footer: spacing for the button */
+.modal-footer {
+  margin-top: 20px;
+}
+
+/* OK button: dark style with light hover effect */
+.modal-footer button {
+  padding: 12px 25px;
+  background-color: #333333; /* Dark button background */
+  border: none;
+  color: #f0f0f0; /* Light grey text */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+/* Button hover effect: lighter grey on hover */
+.modal-footer button:hover {
+  background-color: #555555; /* Lighter grey on hover */
+}
+
+/* Add some focus effect for accessibility */
+.modal-footer button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #888; /* Light grey outline when focused */
+}
+
+@font-face {
+  font-family: "Chilanka";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/chilanka/v20/WWXRlj2DZQiMJYaYRoJPKdAwZg.woff2)
+    format("woff2");
+  unicode-range: U+0307, U+0323, U+0951-0952, U+0964-0965, U+0D00-0D7F, U+1CDA,
+    U+1CF2, U+200C-200D, U+20B9, U+25CC, U+A830-A832;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 20px;
+    font-size: 22px !important;
+  }
+  .text {
+    font-family: "Chilanka", cursive;
+    font-size: 24px !important;
+  }
+
+  .modal-footer button {
+    padding: 10px 20px; /* Adjust button padding for smaller screens */
+    font-size: 14px !important;
+  }
+}
+
+/* Initial state for the text container (invisible and scaled down) */
+.text-hidden {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* State when the text is visible (fully opaque and normal size) */
+.text-visible {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Zoom-out effect when the text disappears */
+.text-zoom-out {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 1s ease, transform 1s ease;
+}
